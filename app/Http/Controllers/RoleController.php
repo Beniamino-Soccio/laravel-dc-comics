@@ -12,7 +12,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view("roles.index", compact("roles"));
     }
 
     /**
@@ -20,7 +21,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        // % restituisco un form VUOTO da popolare
+        return view("roles.create");
     }
 
     /**
@@ -28,15 +30,20 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formData = $request->all();
+
+        $role = Role::create($formData);
+
+        return redirect()->route("role.show", [ "id" => $role->id]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Role $role)
+    public function show(string $id)
     {
-        //
+        $role = Role::findOrFail($id);
+        return view("roles.show", compact("role"));
     }
 
     /**
