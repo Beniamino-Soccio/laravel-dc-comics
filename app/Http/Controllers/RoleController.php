@@ -50,17 +50,23 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role)
+    public function edit(string $id)
     {
-        //
+        $role = Role::findOrFail($id);
+        return view("roles.edit", compact("role"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, string $id)
     {
-        //
+        $formData = $request->all();
+        $role = Role::findOrFail($id);
+
+        $role->update($formData);
+
+        return redirect()->route("role.show", [ "id" => $role->id]);
     }
 
     /**
@@ -70,4 +76,5 @@ class RoleController extends Controller
     {
         //
     }
+
 }

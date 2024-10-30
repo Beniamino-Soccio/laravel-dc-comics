@@ -59,8 +59,7 @@
 
                             <td>
                                 <a href="{{ route("role.show", $role->id) }}" class="btn btn-sm btn-primary me-2">Show</a>
-                                <a href="#" class="btn btn-sm btn-success me-2">Edit</a>
-                                <a href="#" class="btn btn-sm btn-warning me-2">Delete</a>
+                                <a href="{{ route("role.edit", $role->id) }}" class="btn btn-sm btn-success me-2">Edit</a>                                <a href="#" class="btn btn-sm btn-warning me-2">Delete</a>
                             </td>
                         </tr>
                         @empty
