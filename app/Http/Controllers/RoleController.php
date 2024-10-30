@@ -32,6 +32,7 @@ class RoleController extends Controller
     {
         $formData = $request->all();
 
+
         $role = Role::create($formData);
 
         return redirect()->route("role.show", [ "id" => $role->id]);

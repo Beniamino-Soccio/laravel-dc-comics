@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
                 <label for="role-armor_class" class="form-label">armor_class:</label>
-                <input type="text" class="form-control" id="role-armor_class" name="armor_class">
+                <input type="number" class="form-control" id="role-armor_class" name="armor_class">
             </div>
             <div class="mb-3">
                 <label for="role-starter_weapon" class="form-label">starter_weapon:</label>
