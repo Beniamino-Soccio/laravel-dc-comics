@@ -30,7 +30,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $formData = $request->validate([
             "name" => "required|string|min:2|max:255",
             "class" => "required|string|min:4|max:255",
             "race" => "required|string|min:4|max:255",
@@ -39,7 +39,6 @@ class RoleController extends Controller
             "Armor_class" => "integer|numeric",
             "starter_weapon" => "required|string|min:3|max:255",
         ]);
-        $formData = $request->all();
         $role = Role::create($formData);
 
         return redirect()->route("role.show", [ "id" => $role->id]);
@@ -57,18 +56,28 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id )
     {
+
         $role = Role::findOrFail($id);
         return view("roles.edit", compact("role"));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $formData = $request->all();
+        $formData = $request->validate([
+            "name" => "required|string|min:2|max:255",
+            "class" => "required|string|min:4|max:255",
+            "race" => "required|string|min:4|max:255",
+            "damage_type" => "required|string|min:5|max:255",
+            "gender" => "required|string|min:4|max:255",
+            "Armor_class" => "integer|numeric",
+            "starter_weapon" => "required|string|min:3|max:255",
+        ]);
         $role = Role::findOrFail($id);
 
         $role->update($formData);
