@@ -30,9 +30,16 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "name" => "required|string|min:2|max:255",
+            "class" => "required|string|min:4|max:255",
+            "race" => "required|string|min:4|max:255",
+            "damage_type" => "required|string|min:5|max:255",
+            "gender" => "required|string|min:4|max:255",
+            "Armor_class" => "integer|numeric",
+            "starter_weapon" => "required|string|min:3|max:255",
+        ]);
         $formData = $request->all();
-
-
         $role = Role::create($formData);
 
         return redirect()->route("role.show", [ "id" => $role->id]);
