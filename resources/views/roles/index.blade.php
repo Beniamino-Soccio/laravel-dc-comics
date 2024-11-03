@@ -59,7 +59,13 @@
 
                             <td>
                                 <a href="{{ route("role.show", $role->id) }}" class="btn btn-sm btn-primary me-2">Show</a>
-                                <a href="{{ route("role.edit", $role->id) }}" class="btn btn-sm btn-success me-2">Edit</a>                                <a href="#" class="btn btn-sm btn-warning me-2">Delete</a>
+                                <a href="{{ route("role.edit", $role->id) }}" class="btn btn-sm btn-success me-2">Edit</a>
+                                <form action="{{ route("role.delete", $role->id) }}" method="POST" class="d-inline role-destroyer" custom-data-name="{{ $role->name }}">
+                                    @csrf
+                                    @method("DELETE")
+
+                                    <button type="submit" class="btn btn-sm btn-warning"> Delete </button>
+                                </form>
                             </td>
                         </tr>
                         @empty
@@ -72,4 +78,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section("additional-scripts")
+    @vite("resources/js/pokemons/delete-confirmation.js")
 @endsection
