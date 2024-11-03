@@ -13,31 +13,31 @@
             </h1>
             <div class="mb-3">
                 <label for="role-name" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="role-name" name="name">
+                <input type="text" class="form-control" id="role-name" name="name" value="{{old('name')}}>
             </div>
             <div class="mb-3">
                 <label for="role-class" class="form-label">Class:</label>
-                <input type="text" class="form-control" id="role-class" name="class">
+                <input type="text" class="form-control" id="role-class" name="class" value="{{old('class')}}>
             </div>
             <div class="mb-3">
                 <label for="role-race" class="form-label">race:</label>
-                <input type="text" class="form-control" id="role-race" name="race">
+                <input type="text" class="form-control" id="role-race" name="race" value="{{old('race')}}>
             </div>
             <div class="mb-3">
                 <label for="role-damage_type" class="form-label">damage_type:</label>
-                <input type="text" class="form-control" id="role-damage_type" name="damage_type">
+                <input type="text" class="form-control" id="role-damage_type" name="damage_type" value="{{old('damage_type')}}>
             </div>
             <div class="mb-3">
                 <label for="role-gender" class="form-label">gender:</label>
-                <input type="text" class="form-control" id="role-gender" name="gender">
+                <input type="text" class="form-control" id="role-gender" name="gender" value="{{old('gender')}}>
             </div>
             <div class="mb-3">
                 <label for="role-armor_class" class="form-label">armor_class:</label>
-                <input type="number" class="form-control" id="role-armor_class" name="armor_class">
+                <input type="number" class="form-control" id="role-armor_class" name="armor_class" value="{{old('armor_class')}}>
             </div>
             <div class="mb-3">
                 <label for="role-starter_weapon" class="form-label">starter_weapon:</label>
-                <input type="text" class="form-control" id="role-starter_weapon" name="starter_weapon">
+                <input type="text" class="form-control" id="role-starter_weapon" name="starter_weapon" value="{{old('starter_weapon')}}">
             </div>
             <div class="mb-3 d-flex justify-content-center align-items-center">
                 <button type="submit" class="btn btn-primary me-3">
