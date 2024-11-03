@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\StoreRoleRequest;
+use App\Http\Requests\UpdateRoleRequest;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -28,19 +30,10 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
-        $formData = $request->validate([
-            "name" => "required|string|min:2|max:255",
-            "class" => "required|string|min:4|max:255",
-            "race" => "required|string|min:4|max:255",
-            "damage_type" => "required|string|min:5|max:255",
-            "gender" => "required|string|min:4|max:255",
-            "Armor_class" => "integer|numeric",
-            "starter_weapon" => "required|string|min:3|max:255",
-        ]);
+        $formData = $request->validate();
         $role = Role::create($formData);
-
         return redirect()->route("role.show", [ "id" => $role->id]);
     }
 
@@ -69,15 +62,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $formData = $request->validate([
-            "name" => "required|string|min:2|max:255",
-            "class" => "required|string|min:4|max:255",
-            "race" => "required|string|min:4|max:255",
-            "damage_type" => "required|string|min:5|max:255",
-            "gender" => "required|string|min:4|max:255",
-            "Armor_class" => "integer|numeric",
-            "starter_weapon" => "required|string|min:3|max:255",
-        ]);
+        $formData = $request->validate();
         $role = Role::findOrFail($id);
 
         $role->update($formData);
