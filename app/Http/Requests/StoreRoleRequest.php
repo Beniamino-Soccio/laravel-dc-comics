@@ -27,7 +27,7 @@ class StoreRoleRequest extends FormRequest
             "race" => "required|string|min:4|max:255",
             "damage_type" => "required|string|min:5|max:255",
             "gender" => "required|string|min:4|max:255",
-            "Armor_class" => "integer|numeric",
+            "Armor_class" => "required|numeric|integer",
             "starter_weapon" => "required|string|min:3|max:255",
         ];
     }
